@@ -1,24 +1,30 @@
-# README
+# Rails demo project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## System dependencies
 
-Things you may want to cover:
+  - Ruby 2.5+
+  - Sqlite3
 
-* Ruby version
+## Installation
+  ```bash
+    # install repo to ~/rails-demo
+    mkdir ~/rails-demo
+    git clone git@github.com:alexeisersun/rails-demo.git ~/rails-demo
+    cd ~/rails-demo
 
-* System dependencies
+    # install dependencies
+    bundle install
+  ```
+## Database creation
 
-* Configuration
+  ```bash
+    bundle exec rails db:create db:migrate
+  ```
 
-* Database creation
+## Usage
 
-* Database initialization
+  Launch the server using:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ```bash
+    bundle exec rails server
+  ```
