@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="column column-60 column-offset-20 main-logo">
+    <div class="column column-60 column-offset-20">
       <p id="notice"><%= notice %></p>
 
-      <p>
-        <strong>Title:</strong>
+      <h3>
         <%= @question.title %>
-      </p>
+      </h3>
 
-      <p>
-        <strong>Body:</strong>
+      <h5>
         <%= @question.body %>
-      </p>
+      </h5>
 
       <p>
-        <strong>Views count:</strong>
-        <%= @question.views_count %>
+      <%= @question.views_count %> view(s) |
+      +<%= @question.positive_votes %> / -<%= @question.negative_votes %>
       </p>
 
+      <%= link_to "Upvote", upvote_question_path(@question), "data-method": "put" %> |
+      <%= link_to "Downvote", downvote_question_path(@question), "data-method": "put" %> |
       <%= link_to 'Edit', edit_question_path(@question) %> |
       <%= link_to 'Back', questions_path %>
     </div>

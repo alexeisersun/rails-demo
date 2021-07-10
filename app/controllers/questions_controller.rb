@@ -1,5 +1,17 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+
+  # PUT /questions/1/upvote
+  def upvote
+    @question.increment! :positive_votes
+    redirect_to question_path(@question), notice: "Question was upvoted."
+  end
+
+  # PUT /questions/1/downvote
+  def downvote
+    @question.increment! :negative_votes
+    redirect_to question_path(@question), notice: "Question was downvoted."
+  end
 
   # GET /questions
   def index

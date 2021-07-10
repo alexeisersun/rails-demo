@@ -1,10 +1,5 @@
 <div class="container">
   <div class="row">
-    <div class="column column-60 column-offset-20 main-logo">
-      <%= image_tag("logo") %>
-    </div>
-  </div>
-  <div class="row">
     <div class="column column-60 column-offset-20">
       <h1 class="hero-text">Welcome to <span class="brand-color">Stack Overflow</span>!</h1>
     </div>
@@ -39,7 +34,7 @@
           <h5><%= link_to question.title, question_path(question) %></h5>
         </div>
         <div class="column column-20">
-          <p><%= question.views_count %> view(s)</p>
+          <p><%= question.views_count %> view(s) | +<%= question.positive_votes %> / -<%= question.negative_votes %> </p>
         </div>
       </div>
     <% end %>

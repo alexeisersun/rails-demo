@@ -49,3 +49,25 @@
 .button-brand-color.button-clear {
   border-color: transparent;
 }
+
+.nav ul, ol {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
+  align-content: center;
+}
+
+.nav li {
+  float: left;
+}
+
+.nav li a {
+  display: block;
+  text-align: center;
+  padding: 1em;
+  text-decoration: none;
+  font-size: 1.4em;
+}
+
