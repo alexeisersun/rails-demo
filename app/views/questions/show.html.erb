@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="column column-60 column-offset-20 main-logo">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Title:</strong>
+        <%= @question.title %>
+      </p>
+
+      <p>
+        <strong>Body:</strong>
+        <%= @question.body %>
+      </p>
+
+      <p>
+        <strong>Views count:</strong>
+        <%= @question.views_count %>
+      </p>
+
+      <%= link_to 'Edit', edit_question_path(@question) %> |
+      <%= link_to 'Back', questions_path %>
+    </div>
+  </div>
+</div>
