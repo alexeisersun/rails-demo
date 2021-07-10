@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :authenticate_user!, only: [:upvote, :downvote]
 
   # PUT /questions/1/upvote
   def upvote
