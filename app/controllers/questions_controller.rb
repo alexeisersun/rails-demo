@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_question, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, only: [:upvote, :downvote]
+  before_action :check_owner, only: [:destroy]
 
   # PUT /questions/1/upvote
   def upvote
@@ -35,7 +36,7 @@ class QuestionsController < ApplicationController
 
   # POST /questions
   def create
-    @question = Question.new(question_params)
+    @question = Question.new(question_params.merge(user_id: current_user.id))
 
     if @question.save
       redirect_to @question, notice: 'Question was successfully created.'
@@ -68,5 +69,9 @@ class QuestionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def question_params
       params.require(:question).permit(:title, :body, :views_count)
+    end
+
+    def check_owner
+      redirect_to question_path(@question), notice: "You can't delete other's questions." unless current_user.id == @question.user_id
     end
 end
