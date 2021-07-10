@@ -24,4 +24,24 @@
       <% end %>
     </div>
   </div>
+
+  <% if @popular_questions.size > 0 %>
+    <div class="separator"></div>
+    <div class="row">
+      <div class="column column-60 column-offset-20">
+        <h3> Popular questions </h3>
+      </div>
+    </div>
+
+    <% @popular_questions.each do |question| %>
+      <div class="row">
+        <div class="column column-40 column-offset-20">
+          <h5><%= link_to question.title, question_path(question) %></h5>
+        </div>
+        <div class="column column-20">
+          <p><%= question.views_count %> view(s)</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
