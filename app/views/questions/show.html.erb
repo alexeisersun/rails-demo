@@ -20,4 +20,32 @@
       <%= link_to 'Back', questions_path %>
     </div>
   </div>
+
+  <div class="separator"></div>
+
+  <% if @question.answers.count > 0 %>
+    <div class="row">
+      <div class="column column-60 column-offset-20">
+        <h4>Answers (<%= @question.answers.count %>)</h4>
+
+        <%= render partial: "answer", collection: @question.answers %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="column column-60 column-offset-20">
+      <h4>New answer:</h4>
+      <%= form_with(model: [@question, @question.answers.build]) do |form| %>
+        <div class="field">
+          <%= form.label :text %>
+          <%= form.text_area :text %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
