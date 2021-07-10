@@ -12,7 +12,16 @@
 
   <div class="row">
     <div class="column column-60 column-offset-20">
-      <h3 class="hero-subtext"> Here you can find answers to many questions. </h3>
+      <% if @questions_count == 0 %>
+        <h3 class="hero-subtext">
+          Be the first to <%= link_to "ask a question", questions_path %>.
+        </h3>
+      <% else %>
+        <h3 class="hero-subtext"> Here you can find answers to
+          <% text = @questions_count == 1 ? "1 question" : "#{@questions_count} questions" %>
+          <%= link_to text, questions_path %>.
+        </h3>
+      <% end %>
     </div>
   </div>
 </div>
