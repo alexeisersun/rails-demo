@@ -9,7 +9,7 @@
   ```bash
     # install repo to ~/rails-demo
     mkdir ~/rails-demo
-    git clone git@github.com:alexeisersun/rails-demo.git ~/rails-demo
+    git clone https://github.com/alexeisersun/rails-demo.git ~/rails-demo
     cd ~/rails-demo
 
     # install dependencies
