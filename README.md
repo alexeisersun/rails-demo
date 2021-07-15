@@ -5,8 +5,17 @@
   - Ruby 2.5+
   - Sqlite3
 
+```bash
+# for Linux
+sudo apt install sqlite3
+
+# for macOS
+brew install sqlite
+
+```
+
 ## Installation
-  ```bash
+  ```bash  
     # install repo to ~/rails-demo
     mkdir ~/rails-demo
     git clone https://github.com/alexeisersun/rails-demo.git ~/rails-demo
